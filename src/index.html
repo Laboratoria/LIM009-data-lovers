@@ -6,11 +6,28 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <h1>LatinFemData</h1>
+    <section id="selectorBox">
+        <select id="filtrar-pais" name="paises" class="selectors">
+          <option value="PER">Perú</option>
+          <option value="MEX">Mexico</option>
+          <option value="CHL">Chile</option>
+          <option value="BRA">Brasil</option>
+        </select>
+
+    <button id="indicators">Ver Indicadores</button>
     <div id="root"></div>
+
+    <p>Indicadores</p>
+    <div id="list-indicator"> </div>
+
+    </div>
+  </section>
+    
     <!-- <script src="./data/injuries/injuries.js"></script> -->
     <!-- <script src="./data/pokemon/pokemon.js"></script> -->
     <!-- <script src="./data/steam/steam.js"></script> -->
-    <!-- <script src="./data/worldbank/worldbank.js"></script> -->
+    <script src="./data/worldbank/worldbank.js"></script>
     <!-- <script src="./data/lol/lol.js"></script> -->
     <script src="data.js"></script>
     <script src="main.js"></script>

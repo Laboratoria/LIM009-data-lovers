@@ -1,10 +1,24 @@
-/* Manejo de data */
 
-// esta es una función de ejemplo
-// puedes ver como agregamos la función a nuestro objeto global window
+window.WorldBank = {
+ filterDataContries:(data, country) => {
+ const indicatorCountries = (data[country].indicators)
+ const arrNameIndicator = indicatorCountries.map(objetIndicator => {
+ const nameIndicator = objetIndicator.indicatorName;
+ return nameIndicator;
+ })
+ return arrNameIndicator;
+ },
+}
 
-const example = () => {
-  return 'example';
-};
 
-window.example = example;
+//  window.WORLDBANK
+//  const filterDataContries = (data, country) => {
+//  const indicatorCountries = (data[country].indicators)
+//  const arrNameIndicator = indicatorCountries.filter(objetIndicator => {
+//  const nameIndicator = objetIndicator.indicatorName;
+//  return nameIndicator;
+//  })
+//  return arrNameIndicator;
+//  };
+ 
+//  console.log(filterDataContries(WORLDBANK, 'MEX'));
