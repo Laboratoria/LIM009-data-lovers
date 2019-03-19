@@ -1,24 +1,13 @@
 
+
 window.WorldBank = {
- filterDataContries:(data, country) => {
- const indicatorCountries = (data[country].indicators)
- const arrNameIndicator = indicatorCountries.map(objetIndicator => {
- const nameIndicator = objetIndicator.indicatorName;
- return nameIndicator;
- })
- return arrNameIndicator;
- },
-}
+    filterDataCountries:(data, country,sector) => {
+    const sectorCodeCountries = (data[country].indicators)
+    const arrSectorCodeIndicator= sectorCodeCountries.filter(objSector => {
+    const SectorCode = objSector.indicatorCode.startsWith(sector);
+    return SectorCode;
+    })
+    return arrSectorCodeIndicator;
+    },
+   }
 
-
-//  window.WORLDBANK
-//  const filterDataContries = (data, country) => {
-//  const indicatorCountries = (data[country].indicators)
-//  const arrNameIndicator = indicatorCountries.filter(objetIndicator => {
-//  const nameIndicator = objetIndicator.indicatorName;
-//  return nameIndicator;
-//  })
-//  return arrNameIndicator;
-//  };
- 
-//  console.log(filterDataContries(WORLDBANK, 'MEX'));

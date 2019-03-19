@@ -1,0 +1,27 @@
+
+#logoBox{
+    background:rgba(226, 217, 217, 0.924);
+}
+.logo {
+    height: 16%;
+    width: 16%;
+}
+
+#button {
+    padding: 0;
+    }
+li {
+    display: inline;
+    }
+
+ a {
+    font-family: Arial;
+    font-size: 30px;
+    text-decoration: none;
+    float: left;
+    padding: 0;
+    background-color: #2175bc;
+    color: #fff;
+    width: 33.33%;
+    text-align: center;
+    }
