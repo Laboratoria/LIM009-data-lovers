@@ -19,13 +19,18 @@ console.log(sector);
  )
 
 
-buttonIndicators.addEventListener("click", ()=>{
-result = window.WorldBank.filterDataCountries(data,country,sector);
-const listIndicators = document.getElementById('list-indicator')
-listIndicators.innerHTML=result;
-return result,
-console.log(result)
-})
+ buttonIndicators.addEventListener("click", ()=>{
+    result = window.WorldBank.filterDataCountries(data,country,sector);
+    console.log(result)
+    let datos = '';
+    const listIndicators = document.getElementById('list-indicator')
+    for(let i = 0; i < result.length; i++){
+      console.log(result[i].indicatorName)
+       datos += `<p>${result[i].indicatorName}</p>`
+    }
+    listIndicators.innerHTML=datos;
+    //return result,
+    })
 
 
 
