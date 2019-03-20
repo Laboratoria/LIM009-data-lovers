@@ -1,10 +1,13 @@
-/* Manejo de data */
 
-// esta es una función de ejemplo
-// puedes ver como agregamos la función a nuestro objeto global window
 
-const example = () => {
-  return 'example';
-};
+window.WorldBank = {
+    filterDataCountries:(data, country,sector) => {
+    const sectorCodeCountries = (data[country].indicators)
+    const arrSectorCodeIndicator= sectorCodeCountries.filter(objSector => {
+    const SectorCode = objSector.indicatorCode.startsWith(sector);
+    return SectorCode;
+    })
+    return arrSectorCodeIndicator;
+    },
+   }
 
-window.example = example;
