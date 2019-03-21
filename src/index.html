@@ -6,50 +6,50 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
-    <Section id="logoBox">
+    <header id="logo-box">
       <img  class="logo" src="./img/Logo5.png" alt="Logo LatinFemData"></img>
-    </Section>
-    <section id="Menu">
-      <ul id=”button”>
-            <li><a href=”#”>Inicio</a></li>
-            <li><a href=”#”>Indicadores Estadísticos</a></li>
-            <li><a href=”#”>Data</a></li>
-      </ul>
+    </header>
+    <main>
+    <section id="home-page">
+
     </section>
-    <section id="selectorBox">
-        <select id="filtrar-pais" name="paises" class="selectors">
-          <option value="" disabled selected>País</option>
+    <section id="indicators-page">
+      <nav class="nav">
+        <li><a href=”#”>Inicio</a></li>
+        <li><a href=”#”>Indicadores Estadísticos</a></li>
+        <li><a href=”#”>Data</a></li>
+      </nav>
+    <div id="select-country">
+        <select id="country" class="select-country">
           <option value="PER">Perú</option>
           <option value="MEX">Mexico</option>
           <option value="CHL">Chile</option>
           <option value="BRA">Brasil</option>
         </select>
-
-    <select id="filtrar-sector" name="sectores" class="selectors">
-            <option value="" disabled selected>Indicador</option>
-            <option value="SP">Sector Población</option>
-            <option value="SL">Sector Laboral</option>
-            <option value="SH">Sector Salud</option>
-            <option value="SE">Sector Educación</option>
-            <option value="IC">Sector Comercial</option>
-            <option value="SG">Sector Género</option>
-            <option value="per">Sec. Programas Soc.</option>
-            <option value="HD">Sector Capital Hum.</option>
-            <option value="MS">Sector Militar</option>
-            <option value="DT">Flujo Oficial (ONU)</option>
-    </select>
-
-    <button id="indicators">Ver Indicadores</button>
-    <div id="root"></div>
-
-    <p>Indicadores</p>
-    <div id="list-indicator"> </div>
-
     </div>
-  </section>
-    
-   
+    <div id="select-sector" class="select-sector">
+      <select id="sector">
+        <option value="SP">Sector Población</option>
+        <option value="SL">Sector Laboral</option>
+        <option value="SH">Sector Salud</option>
+        <option value="SE">Sector Educación</option>
+        <option value="IC">Sector Comercial</option>
+        <option value="SG">Sector Género</option>
+        <option value="per">Sec. Programas Soc.</option>
+        <option value="HD">Sector Capital Hum.</option>
+        <option value="MS">Sector Militar</option>
+        <option value="DT">Flujo Oficial (ONU)</option>
+      </select>
+    </div>
+    <button type="button" id="indicators">Ver Indicadores</button>
+    <div id="list-indicator">
+      <h2></h2>
+    </div>
+    </section>
+    <section id="page-data-indicators">
+      
+    </section>
+  </main>
     <script src="./data/worldbank/worldbank.js"></script>
     <script src="data.js"></script>
     <script src="main.js"></script>
