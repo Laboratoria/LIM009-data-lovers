@@ -1,5 +1,6 @@
 const data = window.data;
 const btnIndicators = document.getElementById("indicators");
+const listaIndicators = document.getElementById('list-indicator')
 btnIndicators.addEventListener('click', () => {
    const country = document.getElementById("country").value;
    const sector = document.getElementById("sector").value;
@@ -7,10 +8,12 @@ btnIndicators.addEventListener('click', () => {
    let listFemIndicators = window.WorldBank.filterFemIndicators(listIndicators);
    let datos = '';
     for(let i = 0; i < listFemIndicators.length; i++){
-       datos += `
-       <ul>
-       <li><a href="#page-data-indicators">${listFemIndicators[i].indicatorName}.</a></li>
-       </ul>`
-      document.getElementById('list-indicator').innerHTML = datos;
+       datos += 
+       
+      `<li><a href="#page-data-indicators" id="list" >${listFemIndicators[i].indicatorName}.</a></li>`
+       
+      listaIndicators.innerHTML = datos;
     }
-});
+    })
+   });
+    
