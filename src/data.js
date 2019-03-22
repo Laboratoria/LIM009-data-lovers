@@ -10,7 +10,7 @@ window.WorldBank = {
 
     filterFemIndicators: (data) => {
         const genFem = data.filter(filterFem => {
-            const arrFemSector = filterFem.indicatorCode.includes('.FE.');
+            const arrFemSector = filterFem.indicatorCode.includes('.FE');
             return arrFemSector;
         })
         return genFem;
