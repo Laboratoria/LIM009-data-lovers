@@ -15,4 +15,14 @@ window.WorldBank = {
         })
         return genFem;
     },
+
+    indicatorData: (listFemIndicators, indicatorId) => {
+        let arr ='';
+        for(let i = 0; i < listFemIndicators.length; i++){
+           if (listFemIndicators[i].indicatorCode === indicatorId){
+              arr = listFemIndicators[i].data;
+           }
+        }
+        return arr;
+     }
 }
