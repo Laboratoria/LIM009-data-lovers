@@ -22,6 +22,7 @@ btnIndicators.addEventListener('click', () => {
 
    const datosList = document.querySelectorAll('li.list');
 
+ master
    datosList.forEach(dato => {
       dato.addEventListener('click', () => {
          let dataIndividual;
@@ -39,3 +40,14 @@ btnIndicators.addEventListener('click', () => {
       });
    })
 })
+
+   Array.from(datosList).forEach(dato => {
+      dato.addEventListener('click', () => {
+         const indicatorId = dato.id;
+         const returnIndicatorsData = window.WorldBank.indicatorData(listFemIndicators, indicatorId);
+         return returnIndicatorsData;
+         //console.log(returnIndicatorsData);
+      });
+   })
+})
+master
