@@ -1,5 +1,7 @@
 const data = window.data;
 const btnIndicators = document.getElementById("indicators");
+const listaIndicators = document.getElementById('list-indicator')
+const tablaDataIndicators=document.getElementById("tabla-data")
 btnIndicators.addEventListener('click', () => {
    const country = document.getElementById("country").value;
    const sector = document.getElementById("sector").value;
@@ -20,6 +22,25 @@ btnIndicators.addEventListener('click', () => {
 
    const datosList = document.querySelectorAll('li.list');
 
+ master
+   datosList.forEach(dato => {
+      dato.addEventListener('click', () => {
+         let dataIndividual;
+         const indicatorId = dato.id;
+         const returnIndicatorsData = window.WorldBank.indicatorData(listFemIndicators, indicatorId);
+         for(let i in returnIndicatorsData){
+         dataIndividual +=
+            ` <tr>
+              <td> ${i} </td>
+              <td>${ returnIndicatorsData[i]}</td>
+              </tr>`
+             tablaDataIndicators.innerHTML= dataIndividual;
+             console.log(dataIndividual)
+         }
+      });
+   })
+})
+
    Array.from(datosList).forEach(dato => {
       dato.addEventListener('click', () => {
          const indicatorId = dato.id;
@@ -29,3 +50,4 @@ btnIndicators.addEventListener('click', () => {
       });
    })
 })
+master

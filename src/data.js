@@ -20,7 +20,10 @@ window.WorldBank = {
         let arr ='';
         for(let i = 0; i < listFemIndicators.length; i++){
            if (listFemIndicators[i].indicatorCode === indicatorId){
+ master
               arr = listFemIndicators[i].data;
+              arr = listFemIndicators[i].data;
+ master
            }
         }
         return arr;
