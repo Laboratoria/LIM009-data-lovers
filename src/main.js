@@ -23,7 +23,12 @@ btnIndicators.addEventListener('click', () => {
    document.getElementById('list-indicator').innerHTML = datos;
 
    const datosList = document.querySelectorAll('li.list');
+<<<<<<< HEAD
    let returnIndicatorsData;
+=======
+
+ master
+>>>>>>> cb9dda1a8d278c0ba5a3239444e31b599508681f
    datosList.forEach(dato => {
       dato.addEventListener('click', () => {
          let dataIndividual=""
@@ -58,3 +63,14 @@ btnIndicators.addEventListener('click', () => {
       })
    })
 })
+
+   Array.from(datosList).forEach(dato => {
+      dato.addEventListener('click', () => {
+         const indicatorId = dato.id;
+         const returnIndicatorsData = window.WorldBank.indicatorData(listFemIndicators, indicatorId);
+         return returnIndicatorsData;
+         //console.log(returnIndicatorsData);
+      });
+   })
+})
+master
