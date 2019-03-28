@@ -1,69 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header id="logo-box">
-      <img  class="logo" src="./img/Logo5.png" alt="Logo LatinFemData"></img>
-    </header>
-    <main>
-    <section id="home-page">
+<head>
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="logo-box">
+    <img class="logo" src="./img/Logo.png" alt="Logo LatinFemData">
+      <nav class="nav">
+        <a id="home" href="#">Inicio</a>
+        <a id="indicators-p" href="#">Indicadores Estadísticos</a>
+        <a id="data-p" href="#">Data</a>
+  </header>
+  <main>
+    <section id="home-page" class="show">
 
     </section>
-    <section id="indicators-page">
-      <nav class="nav">
-        <nav><a href=”#”>Inicio</a></nav>
-        <nav><a href=”#”>Indicadores Estadísticos</a></nav>
-        <nav><a href=”#”>Data</a></nav>
-      </nav>
-    <div id="select-country">
+    <section id="indicators-page" class="hide">
+      <div id="select-country">
         <select id="country" class="select-country">
           <option value="PER">Perú</option>
           <option value="MEX">Mexico</option>
           <option value="CHL">Chile</option>
           <option value="BRA">Brasil</option>
         </select>
-    </div>
-    <div id="select-sector" class="select-sector">
-      <select id="sector">
-        <option value="SP">Sector Población</option>
-        <option value="SL">Sector Laboral</option>
-        <option value="SH">Sector Salud</option>
-        <option value="SE">Sector Educación</option>
-        <option value="IC">Sector Comercial</option>
-        <option value="SG">Sector Género</option>
-        <option value="HD">Sector Capital Hum.</option>
-      </select>
-    </div>
-    <button type="button" id="indicators">Ver Indicadores</button>
-    <div >
-      <ul id="list-indicator"></ul>
-      <h2></h2>
-    </div>
+      </div>
+      <div id="select-sector" class="select-sector">
+        <select id="sector">
+          <option value="SP">Sector Población</option>
+          <option value="SL">Sector Laboral</option>
+          <option value="SH">Sector Salud</option>
+          <option value="SE">Sector Educación</option>
+          <option value="IC">Sector Comercial</option>
+          <option value="SG">Sector Género</option>
+          <option value="HD">Sector Capital Hum.</option>
+        </select>
+      </div>
+      <button type="button" id="indicators">Ver Indicadores</button>
+      <div>
+        <ul id="list-indicator"></ul>
+        <h2></h2>
+      </div>
     </section>
-    <section id="page-data-indicators">
-    <select id="select-order">
-        <option value="Asc">Ascendente</option>
-        <option value="Desc">Descendente</option>
-    </select>
-    <div id=tabla-normal>
+    <section id="page-data-indicators" class="hide">
+      <select id="select-order">
+        <option value="asc">Ascendente</option>
+        <option value="desc">Descendente</option>
+      </select>
+      <button id="order-data-btn">Ver</button>
       <table>
         <thead>
-        <tr>
-          <th>Años</th>
-          <th>Porentajes</th>
-        </tr>
-      </thead>
-      <tbody id="tabla-data">
-      </tbody>
-     </table>
-    </div>
-    <!-- <div id=tabla-ascDesc>
-        <table>
-          <thead>
           <tr>
             <th>Años</th>
             <th>Porentajes</th>
@@ -71,17 +58,15 @@
         </thead>
         <tbody id="tabla-data">
         </tbody>
-      </div> -->
+      </table>
 
-     
       <table id="tabla-estadist">
 
       </table>
-    -
     </section>
   </main>
-    <script src="./data/worldbank/worldbank.js"></script>
-    <script src="data.js"></script>
-    <script src="main.js"></script>
-  </body>
+  <script src="./data/worldbank/worldbank.js"></script>
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
 </html>
