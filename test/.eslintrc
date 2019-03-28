@@ -4,6 +4,7 @@
     "mocha": true
   },
   "globals": {
+    "WorldBank": false,
     "assert": false
   }
 }

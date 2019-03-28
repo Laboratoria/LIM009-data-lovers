@@ -7,6 +7,13 @@
     width: 16%;
 }
 
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
 /* #button {
     padding: 0;
     }
