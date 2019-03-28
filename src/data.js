@@ -32,4 +32,18 @@ window.WorldBank = {
             return avgDat;
       },
 
+    sortData: (objOrder, sortValue) => { // Función para ordenar el objeto 
+        let newArrResultOrder = [];
+        for (let key in objOrder) {
+            newArrResultOrder.push([key, objOrder[key]]);
+          }
+          if (sortValue === "Asc") {
+            newArrResultOrder.sort((a,b)=>a[1]- b[1]);
+          } else if(sortValue === "Desc") {
+            newArrResultOrder.sort((a,b)=>(b[1]-a[1]));
+          }
+        return newArrResultOrder;  
+},
+
+
       }

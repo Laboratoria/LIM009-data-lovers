@@ -1,4 +1,4 @@
-const data = window.data;
+const data =  WORLDBANK;
 const btnIndicators = document.getElementById("indicators");
 const listaIndicators = document.getElementById('list-indicator')
 const tablaDataIndicators=document.getElementById("tabla-data")
@@ -35,6 +35,8 @@ btnIndicators.addEventListener('click', () => {
               ` <tr><td> ${i} </td>
                 <td>${ returnIndicatorsData[i].toFixed(2)}</td></tr>`;
                tablaDataIndicators.innerHTML= dataIndividual;
+
+               console.log( returnIndicatorsData )
             }
          }
          let arrayData=Object.values(returnIndicatorsData);
