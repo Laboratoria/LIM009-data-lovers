@@ -68,6 +68,12 @@ console.log(datosList);
 
          pages(dataIndicatorsPage);
 
+         let dataIndividual = "";
+         const indicatorId = dato.id;
+         returnIndicatorsData = window.WorldBank.indicatorData(listFemIndicators, indicatorId);
+
+        
+
          const indicatorId = dato.id;
          returnIndicatorsData = window.WorldBank.indicatorData(listFemIndicators, indicatorId);
          const indicators = Object.entries(returnIndicatorsData);
@@ -96,6 +102,7 @@ console.log(datosList);
          // </tr>`
          // tablaEstadist.innerHTML = statisticalTable;
          // })   
+        
       })
    })
 })
@@ -104,17 +111,6 @@ console.log(datosList);
 */
 const renderPopulationTable = (data) => {
    let tableHtml = "";
-   // data.each(([year, percentage]) => {
-   //    if (year.trim() === "" || percentage.trim() === "") {
-   //       return
-   //    }
-
-   //    tableHtml += ` <tr>
-   //          <td>${year}</td>
-   //          <td>${percentage}</td>
-   //       </tr>`
-     
-   // })
 
    for (let i in data) {
      let yearAndPercentage = data[i];
