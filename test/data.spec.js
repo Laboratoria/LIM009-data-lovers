@@ -479,6 +479,6 @@ describe('filterDataCountries', () => {
   });
 
   it('debería retornar un array de objetos de los indicadores filtrados por pais y sector', () => {
-     assert.equal(window.WorldBank.filterDataCountries(input), 'PER', 'SP').toEqual(output1);
+     assert.equal(window.WorldBank.filterDataCountries(input), 'PER', 'SP').toBe(output1);
   });
 })
