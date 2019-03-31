@@ -77,10 +77,8 @@ btnIndicators.addEventListener('click', () => {
                   dataOrderIndividual +=
                      ` <tr><td> ${value[0]} </td>
                    <td>${ value[1].toFixed(2)}</td></tr>`;
-                  // tablaDataIndicators.innerHTML = dataIndividual;
                   tablaDataIndicators.innerHTML= dataOrderIndividual;
                }
-            // returnOrderDataTable.innerHTML = dataIndividual;
          }
          })    
 

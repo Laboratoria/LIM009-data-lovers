@@ -5,7 +5,6 @@ window.WorldBank = {
           const SectorCode = objSector.indicatorCode.startsWith(sector);
           return SectorCode;
       })
-      // console.log(arrSectorCodeIndicator);
       return arrSectorCodeIndicator;
   },
 
