@@ -42,7 +42,6 @@ btnIndicators.addEventListener('click', () => {
    let datos = '';
    for (let i = 0; i < listFemIndicators.length; i++) {
       datos += `<li id="${listFemIndicators[i].indicatorCode}" class="list">${listFemIndicators[i].indicatorName}.</li>`
-
    }
    document.getElementById('list-indicator').innerHTML = datos;
 
