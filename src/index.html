@@ -12,6 +12,7 @@
         <a id="home" href="#">Inicio</a>
         <a id="indicators-p" href="#">Indicadores Estadísticos</a>
         <a id="data-p" href="#">Data</a>
+      </nav>
   </header>
   <main>
     <section id="home-page" class="show">
@@ -20,21 +21,21 @@
     <section id="indicators-page" class="hide">
       <div id="select-country">
         <select id="country" class="select-country">
-          <option value="PER">Perú</option>
-          <option value="MEX">Mexico</option>
-          <option value="CHL">Chile</option>
-          <option value="BRA">Brasil</option>
+          <option value="PER" label="Perú">Perú</option>
+          <option value="MEX" label="Mexico">Mexico</option>
+          <option value="CHL" label="Chile">Chile</option>
+          <option value="BRA" label="Brasil">Brasil</option>
         </select>
       </div>
       <div id="select-sector" class="select-sector">
         <select id="sector">
-          <option value="SP">Sector Población</option>
-          <option value="SL">Sector Laboral</option>
-          <option value="SH">Sector Salud</option>
-          <option value="SE">Sector Educación</option>
-          <option value="IC">Sector Comercial</option>
-          <option value="SG">Sector Género</option>
-          <option value="HD">Sector Capital Hum.</option>
+          <option value="SP" label="Sector Población">Sector Población</option>
+          <option value="SL" label="Sector Laboral">Sector Laboral</option>
+          <option value="SH" label="Sector Salud">Sector Salud</option>
+          <option value="SE" label="Sector Educación">Sector Educación</option>
+          <option value="IC" label="Sector Comercial">Sector Comercial</option>
+          <option value="SG" label="Sector Género">Sector Género</option>
+          <option value="HD" label="Sector Capital Humano">Sector Capital Humano</option>
         </select>
       </div>
       <button type="button" id="indicators">Ver Indicadores</button>
@@ -44,6 +45,8 @@
       </div>
     </section>
     <section id="page-data-indicators" class="hide">
+      <div><span id="select-country2"></span>-<span id="select-sector2"></span></div>
+      <div><span id="paintIndicator"></span></div>
       <select id="select-order">
         <option value="asc">Ascendente</option>
         <option value="desc">Descendente</option>
