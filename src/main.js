@@ -6,7 +6,7 @@ const indicatorsPage = document.getElementById('indicators-page');
 const dataIndicatorsPage = document.getElementById('page-data-indicators');
 const btnIndicators = document.getElementById("indicators");
 const tablaDataIndicators = document.getElementById("tabla-data");
-// const tablaEstadist = document.getElementById("tabla-estadist");
+const tablaEstadist = document.getElementById("tabla-estadist");
 const orderDataBtn = document.getElementById("order-data-btn");
 
 const pages = (pageToShow) => {
@@ -21,7 +21,6 @@ const pages = (pageToShow) => {
 const clickBtnhome = () => {
    pages(homePage);
 };
-//ORIGINALLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
 
 const clickBtnIndicatorsP = () => {
    pages(indicatorsPage);
@@ -48,7 +47,6 @@ btnIndicators.addEventListener('click', () => {
    } else {
       listFemIndicators = window.WorldBank.filterFemIndicators(listIndicators);
    }
-console.log(listFemIndicators);
 
    let datos = '';
    for (let i = 0; i < listFemIndicators.length; i++) {
@@ -57,7 +55,7 @@ console.log(listFemIndicators);
    document.getElementById('list-indicator').innerHTML = datos;
 
    const datosList = document.querySelectorAll('li.list');
-console.log(datosList);
+
 
 
 
@@ -74,47 +72,32 @@ console.log(datosList);
          const tableHtml = renderPopulationTable(indicators);
          tablaDataIndicators.innerHTML = tableHtml;
 
-         // let dataTable = (returnIndicatorsData, returnOrderDataTable) 
-        
 
 
-         // let arrayData = Object.values(returnIndicatorsData);
-         // let arrayFilterNumberData = arrayData.filter(Number);
-         // let minData = Math.min(...arrayFilterNumberData).toFixed(2)
-         // let maxData = Math.max(...arrayFilterNumberData).toFixed(2)
-         // let promData = window.WorldBank.averageData(arrayFilterNumberData).toFixed(2)
-         // let statisticalTable =
-         //    `<tr> <th>Datos estadisticos</th> <th>Valores</th> </tr> 
-         // <tr> <td> Min. </td>
-         //  <td>${minData}</td>
-         // </tr>
-         // <tr> <td> Max. </td>
-         //  <td>${maxData}</td>
-         // </tr>
-         // <tr> <td> Promedio </td>
-         //  <td>${promData}</td>
-         // </tr>`
-         // tablaEstadist.innerHTML = statisticalTable;
-         // })   
+         let arrayData = Object.values(returnIndicatorsData);
+         let arrayFilterNumberData = arrayData.filter(Number);
+         let minData = Math.min(...arrayFilterNumberData).toFixed(2)
+         let maxData = Math.max(...arrayFilterNumberData).toFixed(2)
+         let promData = window.WorldBank.averageData(arrayFilterNumberData).toFixed(2)
+         let statisticalTable =
+            `<tr> <th>Datos estadisticos</th> <th>Valores</th> </tr> 
+         <tr> <td> Min. </td>
+          <td>${minData}</td>
+         </tr>
+         <tr> <td> Max. </td>
+          <td>${maxData}</td>
+         </tr>
+         <tr> <td> Promedio </td>
+          <td>${promData}</td>
+         </tr>`
+         tablaEstadist.innerHTML = statisticalTable;
+         })   
       })
    })
-})
-/*
-  @param data An array of arrays
-*/
-const renderPopulationTable = (data) => {
-   let tableHtml = "";
-   // data.each(([year, percentage]) => {
-   //    if (year.trim() === "" || percentage.trim() === "") {
-   //       return
-   //    }
 
-   //    tableHtml += ` <tr>
-   //          <td>${year}</td>
-   //          <td>${percentage}</td>
-   //       </tr>`
-     
-   // })
+
+const renderPopulationTable = (data) => {
+    let tableHtml = "";
 
    for (let i in data) {
      let yearAndPercentage = data[i];

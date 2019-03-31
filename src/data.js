@@ -5,7 +5,6 @@ window.WorldBank = {
             const SectorCode = objSector.indicatorCode.startsWith(sector);
             return SectorCode;
         })
-        // console.log(arrSectorCodeIndicator);
         return arrSectorCodeIndicator;
     },
 
@@ -27,14 +26,7 @@ window.WorldBank = {
         return arr;
     },
 
-    // orderDataTable([], "wer") => {
     orderDataTable: (data, order) => {
-    //     const comparators = {
-    //         asc: (prev, next) => prev[1] - next[1],
-    //         desc: (prev, next) =>  next[1] - prev[1],
-    //     };
-
-    //     return data.sort(comparators[order])
         
         if (order === 'asc') {
             return data.sort((prev, next) => {
@@ -47,7 +39,7 @@ window.WorldBank = {
         }
     },
 
-    averageData: (arrData) => { // Función para calcular el promedio
+    averageData: (arrData) => { 
         let sum = arrData.reduce((previous, current) => previous + current)
         let avgDat = sum / arrData.length;
         return avgDat;
