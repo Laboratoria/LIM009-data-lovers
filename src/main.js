@@ -8,6 +8,9 @@ const btnIndicators = document.getElementById("indicators");
 const tablaDataIndicators = document.getElementById("tabla-data");
 const tablaEstadist = document.getElementById("tabla-estadist");
 const orderDataBtn = document.getElementById("order-data-btn");
+const paintCountry= document.getElementById("select-country2");
+const paintSector= document.getElementById("select-sector2");
+const paintIndicator= document.getElementById("paintIndicator");
 
 const pages = (pageToShow) => {
     [homePage, indicatorsPage, dataIndicatorsPage].forEach(page => {
@@ -48,13 +51,17 @@ btnIndicators.addEventListener('click', () => {
    const datosList = document.querySelectorAll('li.list');
    let returnIndicatorsData;
    datosList.forEach(dato => {
-
-    dato.addEventListener('click', () => {
-
-       pages(dataIndicatorsPage);
-
+      dato.addEventListener('click', () => {
+         pages(dataIndicatorsPage);
          let dataIndividual = "";
          const indicatorId = dato.id;
+         let labelSelectCountry= document.getElementById("country").selectedIndex;
+         paintCountry.innerHTML=document.getElementsByTagName("option")[labelSelectCountry].label;
+         let labelSelectSector= document.getElementById("sector").selectedIndex;
+         paintSector.innerHTML= document.getElementsByTagName("option")[labelSelectSector].label;
+         paintIndicator.innerHTML= dato;
+         
+        
          returnIndicatorsData = window.WorldBank.indicatorData(listFemIndicators, indicatorId);
 
          for (let i in returnIndicatorsData) {
