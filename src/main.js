@@ -1,5 +1,5 @@
 const data = window.data;
-const home =  document.getElementById('home');
+const home = document.getElementById('home');
 const indicatorsP = document.getElementById('indicators-p');
 const homePage = document.getElementById('home-page');
 const indicatorsPage = document.getElementById('indicators-page');
@@ -13,21 +13,23 @@ const paintSector= document.getElementById("select-sector2");
 const paintIndicator= document.getElementById("paintIndicator");
 
 const pages = (pageToShow) => {
-   [homePage, indicatorsPage, dataIndicatorsPage].forEach(page => {
-      page.classList.add('hide');
-      page.classList.remove('show')
-   })
-   pageToShow.classList.add('show');
-   pageToShow.classList.remove('hide');
-}
+    [homePage, indicatorsPage, dataIndicatorsPage].forEach(page => {
+       page.classList.add('hide');
+       page.classList.remove('show')
+    })
+    pageToShow.classList.add('show');
+    pageToShow.classList.remove('hide');
+ }
+ 
+ const clickBtnhome = () => {
+    pages(homePage);
+ };
 
-const clickBtnhome = () => {
-   pages(homePage);
-};
-
-const clickBtnIndicatorsP = () => {
-   pages(indicatorsPage);
-};
+ 
+ const clickBtnIndicatorsP = () => {
+    pages(indicatorsPage);
+ };
+ 
 
 btnIndicators.addEventListener('click', () => {
    const country = document.getElementById("country").value;
@@ -43,7 +45,6 @@ btnIndicators.addEventListener('click', () => {
    let datos = '';
    for (let i = 0; i < listFemIndicators.length; i++) {
       datos += `<li id="${listFemIndicators[i].indicatorCode}" class="list">${listFemIndicators[i].indicatorName}.</li>`
-
    }
    document.getElementById('list-indicator').innerHTML = datos;
 
@@ -82,10 +83,8 @@ btnIndicators.addEventListener('click', () => {
                   dataOrderIndividual +=
                      ` <tr><td> ${value[0]} </td>
                    <td>${ value[1].toFixed(2)}</td></tr>`;
-                  // tablaDataIndicators.innerHTML = dataIndividual;
                   tablaDataIndicators.innerHTML= dataOrderIndividual;
                }
-            // returnOrderDataTable.innerHTML = dataIndividual;
          }
          })    
 

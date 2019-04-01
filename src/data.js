@@ -30,8 +30,7 @@ window.WorldBank = {
     orderDataTable: (returnIndicatorsData, order) => {
         const arrData = Object.entries(returnIndicatorsData);
         if (order === 'asc') {
-            arrData.sort((prev, next) => {
-                return prev[1] - next [1];
+            arrData.sort((prev, next) => { return prev[1] - next [1];
             })
         } else {
              arrData.sort((prev, next) => {
