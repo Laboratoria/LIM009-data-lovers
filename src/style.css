@@ -1,12 +1,26 @@
-
-#logoBox{
-    background:rgba(226, 217, 217, 0.924);
-}
-.logo {
-    height: 16%;
-    width: 16%;
+.bg {
+    background-color: #67AAF9
 }
 
+/* carousel */
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.46);
+    /* position: absolute; */
+    /* width: 640px; */
+    align-content: center;
+    /* height: 76px; */
+    /* left: 0px; */
+    /* top: 100px;  */
+}
+
+footer {
+    background-color: #67AAF9;
+}
+
+.dircc {
+    float: right;
+}
+ 
 .show {
     display: block;
 }
