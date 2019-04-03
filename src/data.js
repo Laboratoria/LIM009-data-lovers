@@ -18,38 +18,40 @@ window.worldBank = {
     },
     
     indicatorData: (listFemIndicators, indicatorId) => {
+<<<<<<< HEAD
         let obj = {};
         for (let i = 0; i < listFemIndicators.length; i++) {
             if (listFemIndicators[i].indicatorCode === indicatorId) {
                 obj = listFemIndicators[i].data;
             }
+=======
+        let arr ='';
+        for(let i = 0; i < listFemIndicators.length; i++){
+           if (listFemIndicators[i].indicatorCode === indicatorId){
+              arr = listFemIndicators[i].data;
+           }
+>>>>>>> origin
         }
         return obj;
     },
 
-    // orderDataTable([], "wer") => {
-    orderDataTable: (data, order) => {
-    //     const comparators = {
-    //         asc: (prev, next) => prev[1] - next[1],
-    //         desc: (prev, next) =>  next[1] - prev[1],
-    //     };
-
-    //     return data.sort(comparators[order])
-        
+    orderDataTable: (returnIndicatorsData, order) => {
+        const arrData = Object.entries(returnIndicatorsData);
         if (order === 'asc') {
-            return data.sort((prev, next) => {
-                return prev[1] - next[1];
+            arrData.sort((prev, next) => { return prev[1] - next [1];
             })
         } else {
-        return data.sort((prev, next) => {
-            return next[1] - prev[1];
-        })
-        }
+             arrData.sort((prev, next) => {
+                    return next [1] - prev [1];
+                })
+            }
+        return arrData;
     },
 
     averageData: (arrData) => { // Función para calcular el promedio
-        let sum = arrData.reduce((previous, current) => previous + current)
-        let avgDat = sum / arrData.length;
-        return avgDat;
-    },
+            let sum = arrData.reduce((previous, current) =>  previous+current)
+            let avgDat = sum / arrData.length;
+            return avgDat;
+      },
+
 }

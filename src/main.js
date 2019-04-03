@@ -6,10 +6,14 @@ const indicatorsPage = document.getElementById('indicators-page');
 const dataIndicatorsPage = document.getElementById('page-data-indicators');
 const btnIndicators = document.getElementById("indicators");
 const tablaDataIndicators = document.getElementById("tabla-data");
-// const tablaEstadist = document.getElementById("tabla-estadist");
+const tablaEstadist = document.getElementById("tabla-estadist");
 const orderDataBtn = document.getElementById("order-data-btn");
+const paintCountry= document.getElementById("select-country2");
+const paintSector= document.getElementById("select-sector2");
+const paintIndicator= document.getElementById("paintIndicator");
 
 const pages = (pageToShow) => {
+<<<<<<< HEAD
    [homePage, indicatorsPage, dataIndicatorsPage].forEach(page => {
       page.classList.add('hide');
       page.classList.remove('show')
@@ -37,18 +41,45 @@ orderDataBtn.addEventListener('click', () => {
    tablaDataIndicators.innerHTML = tableHtml;
 });
 
+=======
+    [homePage, indicatorsPage, dataIndicatorsPage].forEach(page => {
+       page.classList.add('hide');
+       page.classList.remove('show')
+    })
+    pageToShow.classList.add('show');
+    pageToShow.classList.remove('hide');
+ }
+ 
+ const clickBtnhome = () => {
+    pages(homePage);
+ };
+
+ 
+ const clickBtnIndicatorsP = () => {
+    pages(indicatorsPage);
+ };
+ 
+>>>>>>> origin
 
 btnIndicators.addEventListener('click', () => {
    const country = document.getElementById("country").value;
    const sector = document.getElementById("sector").value;
+<<<<<<< HEAD
    let listIndicators = window.worldBank.filterDataCountries(data, country, sector);
    let listFemIndicators = '';
+=======
+   let listIndicators = window.WorldBank.filterDataCountries(data, country, sector);
+   let listFemIndicators ='';
+>>>>>>> origin
    if (sector === 'SH' || sector === 'SG') {
-      listFemIndicators = listIndicators;
+      listFemIndicators = listIndicators
    } else {
       listFemIndicators = window.worldBank.filterFemIndicators(listIndicators);
    }
+<<<<<<< HEAD
 // console.log(listFemIndicators);
+=======
+>>>>>>> origin
 
    let datos = '';
    for (let i = 0; i < listFemIndicators.length; i++) {
@@ -57,18 +88,21 @@ btnIndicators.addEventListener('click', () => {
    document.getElementById('list-indicator').innerHTML = datos;
 
    const datosList = document.querySelectorAll('li.list');
+<<<<<<< HEAD
 // console.log(datosList);
 
 
 
 
+=======
+   let returnIndicatorsData;
+>>>>>>> origin
    datosList.forEach(dato => {
-
       dato.addEventListener('click', () => {
-
          pages(dataIndicatorsPage);
-
+         let dataIndividual = "";
          const indicatorId = dato.id;
+<<<<<<< HEAD
          // console.log(typeof indicatorId)
          returnIndicatorsData = window.worldBank.indicatorData(listFemIndicators, indicatorId);
          const indicators = Object.entries(returnIndicatorsData);
@@ -76,8 +110,18 @@ btnIndicators.addEventListener('click', () => {
          tablaDataIndicators.innerHTML = tableHtml;
 
          // let dataTable = (returnIndicatorsData, returnOrderDataTable) 
+=======
+         let labelSelectCountry= document.getElementById("country").selectedIndex;
+         paintCountry.innerHTML=document.getElementsByTagName("option")[labelSelectCountry].label;
+         let labelSelectSector= document.getElementById("sector").selectedIndex;
+         paintSector.innerHTML= document.getElementsByTagName("option")[labelSelectSector].label;
+         paintIndicator.innerHTML= dato;
+         
+>>>>>>> origin
         
+         returnIndicatorsData = window.WorldBank.indicatorData(listFemIndicators, indicatorId);
 
+<<<<<<< HEAD
 
          // let arrayData = Object.values(returnIndicatorsData);
          // let arrayFilterNumberData = arrayData.filter(Number);
@@ -97,40 +141,52 @@ btnIndicators.addEventListener('click', () => {
          // </tr>`
          // tablaEstadist.innerHTML = statisticalTable;
          // })   
+=======
+         for (let i in returnIndicatorsData) {
+            if (returnIndicatorsData[i] !== "") {
+               dataIndividual +=
+                  ` <tr><td> ${i} </td>
+                <td>${ returnIndicatorsData[i].toFixed(2)}</td></tr>`;
+               tablaDataIndicators.innerHTML= dataIndividual;
+               
+            }
+         }
+         orderDataBtn.addEventListener('click', () => {
+            tablaDataIndicators.innerHTML = "";
+            const selectOrder = document.getElementById('select-order').value;
+            let returnOrderDataTable = window.WorldBank.orderDataTable(returnIndicatorsData, selectOrder);
+            let  dataOrderIndividual="";
+            for(let value of returnOrderDataTable){
+               if(value[1] !== "") {
+                  dataOrderIndividual +=
+                     ` <tr><td> ${value[0]} </td>
+                   <td>${ value[1].toFixed(2)}</td></tr>`;
+                  tablaDataIndicators.innerHTML= dataOrderIndividual;
+               }
+         }
+         })    
+
+         let arrayData = Object.values(returnIndicatorsData);
+         let arrayFilterNumberData = arrayData.filter(Number);
+         let minData = Math.min(...arrayFilterNumberData).toFixed(2)
+         let maxData = Math.max(...arrayFilterNumberData).toFixed(2)
+         let promData = window.WorldBank.averageData(arrayFilterNumberData).toFixed(2)
+         let statisticalTable =
+            `<tr> <th>Datos estadisticos</th> <th>Valores</th> </tr> 
+         <tr> <td> Min. </td>
+          <td>${minData}</td>
+         </tr>
+         <tr> <td> Max. </td>
+          <td>${maxData}</td>
+         </tr>
+         <tr> <td> Promedio </td>
+          <td>${promData}</td>
+         </tr>`
+         tablaEstadist.innerHTML = statisticalTable;
+>>>>>>> origin
       })
    })
 })
-/*
-  @param data An array of arrays
-*/
-const renderPopulationTable = (data) => {
-   let tableHtml = "";
-   // data.each(([year, percentage]) => {
-   //    if (year.trim() === "" || percentage.trim() === "") {
-   //       return
-   //    }
-
-   //    tableHtml += ` <tr>
-   //          <td>${year}</td>
-   //          <td>${percentage}</td>
-   //       </tr>`
-     
-   // })
-
-   for (let i in data) {
-     let yearAndPercentage = data[i];
-     let year = yearAndPercentage[0];
-     let percentage = yearAndPercentage[1];
-     if (year !== "" || percentage !== "") {
-      const rowHtml = ` <tr>
-            <td>${year}</td>
-            <td>${percentage}</td>
-         </tr>`
-         tableHtml += rowHtml;
-     }
-   }
-   return tableHtml;
-}
 
 home.addEventListener('click', clickBtnhome)
 indicatorsP.addEventListener('click', clickBtnIndicatorsP);

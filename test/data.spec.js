@@ -1,10 +1,14 @@
 global.window = global;
+<<<<<<< HEAD
 require('../src/data');
 require('./data.spec.js');
+=======
+>>>>>>> origin
 require('../src/data.js');
 const country = 'PER';
 const sector = 'SL'
 
+<<<<<<< HEAD
 const input =
   {
     "PER": {
@@ -448,3 +452,20 @@ describe('worldBank', () => {
     expect(typeof global.worldBank.indicatorData(outputFem, outputEqualId)).toEqual(outputDataIndicator);
   });
 });
+=======
+describe("WorldBank",() => {
+  it("deberia ser un objeto",() => {
+    expect(typeof WorldBank).toBe("object")
+  })
+  describe('filterDataCountries', () => {
+    it('debería ser una función', () => {
+   expect(typeof WorldBank.filterDataCountries).toBe('function');
+  });
+})
+})
+
+//   it('debería retornar un array de objetos de los indicadores filtrados por pais y sector', () => {
+//      assert.equal(window.WorldBank.filterDataCountries(input), 'PER', 'SP').toEqual(output1);
+//   });
+// })
+>>>>>>> origin
