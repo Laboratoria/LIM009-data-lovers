@@ -80,7 +80,7 @@ btnIndicators.addEventListener('click', () => {
       let maxData = Math.max(...arrayFilterNumberData).toFixed(2);
       let promData = window.worldBank.averageData(arrayFilterNumberData).toFixed(2);
       let statisticalTable =
-         `<tr> <th>Datos estadisticos</th> <th>Valores</th> </tr> 
+        `<tr> <th>Datos estadisticos</th> <th>Valores</th> </tr> 
       <tr> <td> Min. </td>
        <td>${minData}</td>
       </tr>
@@ -91,7 +91,7 @@ btnIndicators.addEventListener('click', () => {
        <td>${promData}</td>
       </tr>`;
       tablaEstadist.innerHTML = statisticalTable;
-    });   
+    });
   });
 });
 
@@ -107,7 +107,7 @@ const renderPopulationTable = (data) => {
   //          <td>${year}</td>
   //          <td>${percentage}</td>
   //       </tr>`
-     
+
   // })
 
   for (let i in data) {

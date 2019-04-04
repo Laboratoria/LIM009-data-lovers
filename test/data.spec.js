@@ -150,6 +150,25 @@ const inputFilter = [49.7412220022422, 49.7405035767773, 49.7402183429689, 49.74
 
 const outputAverage = 49.9463393799351;
 
+const inputDataIndicator = {
+  '2002': 31.4799995422363,
+  '2003': 29.6299991607666,
+  '2004': 27.6299991607666,
+  '2005': 27.2099990844727,
+  '2006': 26.9699993133545,
+  '2007': 27.6700000762939,
+  '2008': 26.9599990844727,
+  '2009': 27.3600006103516,
+  '2010': 25.3400001525879,
+  '2011': 24.7999992370605,
+  '2012': 25.0400009155273,
+  '2013': 24.0900001525879,
+  '2014': 24.2099990844727,
+  '2015': 21.6800003051758,
+  '2016': 23.7399997711182,
+  '2017': 23.7600002288818
+};
+
 const output =
   [
     {
@@ -356,27 +375,6 @@ const outputFem = [
   }
 ];
 
-// const outputEqualId = 'SL.TLF.INTM.FE.ZS';
-
-const inputDataIndicator = {
-  '2002': 31.4799995422363,
-  '2003': 29.6299991607666,
-  '2004': 27.6299991607666,
-  '2005': 27.2099990844727,
-  '2006': 26.9699993133545,
-  '2007': 27.6700000762939,
-  '2008': 26.9599990844727,
-  '2009': 27.3600006103516,
-  '2010': 25.3400001525879,
-  '2011': 24.7999992370605,
-  '2012': 25.0400009155273,
-  '2013': 24.0900001525879,
-  '2014': 24.2099990844727,
-  '2015': 21.6800003051758,
-  '2016': 23.7399997711182,
-  '2017': 23.7600002288818
-};
-
 const orderAsc = 'asc';
 
 const outputObjctDataIndicator = {
@@ -440,7 +438,7 @@ const outputObjctDataIndicator = {
   '2017': 23.7600002288818
 };
 
-const orderDataAsc = [
+const outputOrderDataAsc = [
   ['2015', 21.6800003051758],
   ['2016', 23.7399997711182],
   ['2017', 23.7600002288818],
@@ -506,11 +504,11 @@ describe('worldBank', () => {
       expect(typeof global.worldBank.orderDataTable).toBe('function');
     });
     it('deberia retornar un array', () => {
-      expect(typeof global.worldBank.orderDataTable(orderDataAsc)).toBe('object');
+      expect(typeof global.worldBank.orderDataTable(outputOrderDataAsc)).toBe('object');
     });
     it('deberia retornar un array de la data ordenada de manera asc de la data de un incador', () => {
       const indicators = Object.entries(inputDataIndicator);
-      expect(global.worldBank.orderDataTable(indicators, orderAsc)).toEqual(orderDataAsc);
+      expect(global.worldBank.orderDataTable(indicators, orderAsc)).toEqual(outputOrderDataAsc);
     });
   });
 
@@ -521,7 +519,7 @@ describe('worldBank', () => {
     it('deberia retornar un number', () => {
       expect(typeof global.worldBank.averageData(inputFilter)).toBe('number');
     });
-    it('deberia retornar un number de promedio', () => { 
+    it('deberia retornar un number de promedio', () => {
       expect(global.worldBank.averageData(inputFilter)).toEqual(outputAverage);
     });
   });
