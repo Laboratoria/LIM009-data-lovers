@@ -1,11 +1,10 @@
-window.WorldBank = {
+window.worldBank = {
     filterDataCountries: (data, country, sector) => {
         const sectorCodeCountries = (data[country].indicators);
         const arrSectorCodeIndicator = sectorCodeCountries.filter(objSector => {
-            const SectorCode = objSector.indicatorCode.startsWith(sector);
-            return SectorCode;
+            const sectorCode = objSector.indicatorCode.startsWith(sector);
+            return sectorCode;
         })
-        // console.log(arrSectorCodeIndicator);
         return arrSectorCodeIndicator;
     },
 
@@ -18,13 +17,13 @@ window.WorldBank = {
     },
 
     indicatorData: (listFemIndicators, indicatorId) => {
-        let arr ='';
+        let obj ='';
         for(let i = 0; i < listFemIndicators.length; i++){
            if (listFemIndicators[i].indicatorCode === indicatorId){
-              arr = listFemIndicators[i].data;
+              obj = listFemIndicators[i].data;
            }
         }
-        return arr;
+        return obj;
     },
 
     orderDataTable: (returnIndicatorsData, order) => {
@@ -45,5 +44,4 @@ window.WorldBank = {
             let avgDat = sum / arrData.length;
             return avgDat;
       },
-
 }

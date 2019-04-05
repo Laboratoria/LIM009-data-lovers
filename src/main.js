@@ -8,75 +8,61 @@ const btnIndicators = document.getElementById("indicators");
 const tablaDataIndicators = document.getElementById("tabla-data");
 const tablaEstadist = document.getElementById("tabla-estadist");
 const orderDataBtn = document.getElementById("order-data-btn");
-const paintCountry= document.getElementById("select-country2");
-const paintSector= document.getElementById("select-sector2");
-const paintIndicator= document.getElementById("paintIndicator");
 
-const pages = (pageToShow) => {
-    [homePage, indicatorsPage, dataIndicatorsPage].forEach(page => {
-       page.classList.add('hide');
-       page.classList.remove('show')
-    })
-    pageToShow.classList.add('show');
-    pageToShow.classList.remove('hide');
- }
- 
- const clickBtnhome = () => {
-    pages(homePage);
- };
-
- 
- const clickBtnIndicatorsP = () => {
-    pages(indicatorsPage);
- };
- 
+home.addEventListener('click', () => {
+  homePage.classList.add('show');
+  homePage.classList.remove('hide');
+  indicatorsPage.classList.add('hide');
+  indicatorsPage.classList.remove('show');
+  dataIndicatorsPage.classList.add('hide');
+  dataIndicatorsPage.classList.remove('show');
+})
+indicatorsP.addEventListener('click', () => {
+  homePage.classList.remove('show');
+  homePage.classList.add('hide');
+  indicatorsPage.classList.remove('hide');
+  indicatorsPage.classList.add('show');
+});
 
 btnIndicators.addEventListener('click', () => {
    const country = document.getElementById("country").value;
    const sector = document.getElementById("sector").value;
-   let listIndicators = window.WorldBank.filterDataCountries(data, country, sector);
+   let listIndicators = window.worldBank.filterDataCountries(data, country, sector);
    let listFemIndicators ='';
    if (sector === 'SH' || sector === 'SG') {
       listFemIndicators = listIndicators
    } else {
-      listFemIndicators = window.WorldBank.filterFemIndicators(listIndicators);
+      listFemIndicators = window.worldBank.filterFemIndicators(listIndicators);
    }
-
    let datos = '';
    for (let i = 0; i < listFemIndicators.length; i++) {
       datos += `<li id="${listFemIndicators[i].indicatorCode}" class="list">${listFemIndicators[i].indicatorName}.</li>`
    }
    document.getElementById('list-indicator').innerHTML = datos;
 
+
    const datosList = document.querySelectorAll('li.list');
    let returnIndicatorsData;
    datosList.forEach(dato => {
       dato.addEventListener('click', () => {
-         pages(dataIndicatorsPage);
+         dataIndicatorsPage.classList.remove('hide');
+         dataIndicatorsPage.classList.add('show');
          let dataIndividual = "";
          const indicatorId = dato.id;
-         let labelSelectCountry= document.getElementById("country").selectedIndex;
-         paintCountry.innerHTML=document.getElementsByTagName("option")[labelSelectCountry].label;
-         let labelSelectSector= document.getElementById("sector").selectedIndex;
-         paintSector.innerHTML= document.getElementsByTagName("option")[labelSelectSector].label;
-         paintIndicator.innerHTML= dato;
-         
-        
-         returnIndicatorsData = window.WorldBank.indicatorData(listFemIndicators, indicatorId);
+         returnIndicatorsData = window.worldBank.indicatorData(listFemIndicators, indicatorId);
 
          for (let i in returnIndicatorsData) {
             if (returnIndicatorsData[i] !== "") {
                dataIndividual +=
                   ` <tr><td> ${i} </td>
-                <td>${ returnIndicatorsData[i].toFixed(2)}</td></tr>`;
-               tablaDataIndicators.innerHTML= dataIndividual;
-               
+                <td>${ returnIndicatorsData[i].toFixed(2)}</td></tr>`
+               tablaDataIndicators.innerHTML= dataIndividual;     
             }
          }
          orderDataBtn.addEventListener('click', () => {
             tablaDataIndicators.innerHTML = "";
             const selectOrder = document.getElementById('select-order').value;
-            let returnOrderDataTable = window.WorldBank.orderDataTable(returnIndicatorsData, selectOrder);
+            let returnOrderDataTable = window.worldBank.orderDataTable(returnIndicatorsData, selectOrder);
             let  dataOrderIndividual="";
             for(let value of returnOrderDataTable){
                if(value[1] !== "") {
@@ -87,12 +73,11 @@ btnIndicators.addEventListener('click', () => {
                }
          }
          })    
-
          let arrayData = Object.values(returnIndicatorsData);
          let arrayFilterNumberData = arrayData.filter(Number);
          let minData = Math.min(...arrayFilterNumberData).toFixed(2)
          let maxData = Math.max(...arrayFilterNumberData).toFixed(2)
-         let promData = window.WorldBank.averageData(arrayFilterNumberData).toFixed(2)
+         let promData = window.worldBank.averageData(arrayFilterNumberData).toFixed(2)
          let statisticalTable =
             `<tr> <th>Datos estadisticos</th> <th>Valores</th> </tr> 
          <tr> <td> Min. </td>
@@ -108,6 +93,3 @@ btnIndicators.addEventListener('click', () => {
       })
    })
 })
-
-home.addEventListener('click', clickBtnhome)
-indicatorsP.addEventListener('click', clickBtnIndicatorsP);
