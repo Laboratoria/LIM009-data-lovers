@@ -376,7 +376,8 @@ const outputFem = [
 ];
 
 const orderAsc = 'asc';
-const orderDesc = 'desc'
+const orderDesc = 'desc';
+
 
 const outputObjctDataIndicator = {
   '1960': '',

@@ -8,13 +8,13 @@ window.worldBank = {
         return arrSectorCodeIndicator;
     },
 
-    filterFemIndicators: (data) => {
-        const genFem = data.filter(filterFem => {
-            const arrFemSector = filterFem.indicatorCode.includes('.FE');
-            return arrFemSector;
-        })
-        return genFem;
-    },
+  filterFemIndicators: (data) => {
+    const genFem = data.filter(filterFem => {
+      const arrFemSector = filterFem.indicatorCode.includes('.FE');
+      return arrFemSector;
+    });
+    return genFem;
+  },
 
     indicatorData: (listFemIndicators, indicatorId) => {
         let obj ='';
@@ -26,18 +26,20 @@ window.worldBank = {
         return obj;
     },
 
-    orderDataTable: (returnIndicatorsData, order) => {
-        const arrData = Object.entries(returnIndicatorsData);
-        if (order === 'asc') {
-            arrData.sort((prev, next) => { return prev[1] - next [1];
-            })
-        } else {
-             arrData.sort((prev, next) => {
-                    return next [1] - prev [1];
-                })
-            }
-        return arrData;
-    },
+  orderDataTable: (data, order) => {
+    let arrData = [];
+    if (order === 'asc') {
+      arrData = data.concat().sort((prev, next) => {
+        return prev[1] - next[1];
+      });
+    } else {
+      arrData = data.concat().sort((prev, next) => {
+        return next[1] - prev[1];
+      });
+    }
+    return arrData;
+    // console.log(arrData);
+  },
 
     averageData: (arrData) => { // Función para calcular el promedio
             let sum = arrData.reduce((previous, current) =>  previous+current)
