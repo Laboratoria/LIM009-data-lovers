@@ -27,18 +27,18 @@ window.worldBank = {
     },
 
   orderDataTable: (data, order) => {
+     let arrayData= Object.entries(data)
     let arrData = [];
     if (order === 'asc') {
-      arrData = data.concat().sort((prev, next) => {
+      arrData =  arrayData.concat().sort((prev, next) => {
         return prev[1] - next[1];
       });
     } else {
-      arrData = data.concat().sort((prev, next) => {
+      arrData = arrayData.concat().sort((prev, next) => {
         return next[1] - prev[1];
       });
     }
     return arrData;
-    // console.log(arrData);
   },
 
     averageData: (arrData) => { // Función para calcular el promedio

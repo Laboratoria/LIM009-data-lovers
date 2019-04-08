@@ -70,7 +70,7 @@ btnIndicators.addEventListener('click', () => {
             if (returnIndicatorsData[i] !== "") {
                dataIndividual +=
                   ` <tr><td> ${i} </td>
-                <td>${ returnIndicatorsData[i].toFixed(2)}</td></tr>`
+                <td>${returnIndicatorsData[i].toFixed(2)}</td></tr>`
                tablaDataIndicators.innerHTML= dataIndividual;     
             }
          }
@@ -83,8 +83,8 @@ btnIndicators.addEventListener('click', () => {
                if(value[1] !== "") {
                   dataOrderIndividual +=
                      ` <tr><td> ${value[0]} </td>
-                   <td>${ value[1].toFixed(2)}</td></tr>`;
-                  tablaDataIndicators.innerHTML= dataOrderIndividual;
+                   <td>${value[1].toFixed(2)}</td></tr>`;
+                  tablaDataIndicators.innerHTML= dataOrderIndividual
                }
          }
          })    
