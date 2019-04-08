@@ -20,8 +20,10 @@ home.addEventListener('click', () => {
 indicatorsP.addEventListener('click', () => {
   homePage.classList.remove('show');
   homePage.classList.add('hide');
-  indicatorsPage.classList.remove('hide');
   indicatorsPage.classList.add('show');
+  indicatorsPage.classList.remove('hide');
+  dataIndicatorsPage.classList.remove('show');
+  dataIndicatorsPage.classList.add('hide');
 });
 
 btnIndicators.addEventListener('click', () => {
@@ -29,6 +31,13 @@ btnIndicators.addEventListener('click', () => {
    const sector = document.getElementById("sector").value;
    let listIndicators = window.worldBank.filterDataCountries(data, country, sector);
    let listFemIndicators ='';
+   //insertar el nombre de los sectores.
+   const nameSector = document.getElementById('name-sector');
+   nameSector.innerHTML = document.getElementById("sector").selectedOptions[0].text;
+   const selectSector2 = document.getElementById('select-sector2');
+   selectSector2.innerHTML=document.getElementById("sector").selectedOptions[0].text;
+   const selectCountry2 = document.getElementById('select-country2');
+   selectCountry2.innerHTML= document.getElementById('country').selectedOptions[0].text;
    if (sector === 'SH' || sector === 'SG') {
       listFemIndicators = listIndicators
    } else {
@@ -41,14 +50,20 @@ btnIndicators.addEventListener('click', () => {
    document.getElementById('list-indicator').innerHTML = datos;
 
 
+
    const datosList = document.querySelectorAll('li.list');
    let returnIndicatorsData;
    datosList.forEach(dato => {
       dato.addEventListener('click', () => {
+         indicatorsPage.classList.remove('show');
+         indicatorsPage.classList.add('hide');
          dataIndicatorsPage.classList.remove('hide');
          dataIndicatorsPage.classList.add('show');
          let dataIndividual = "";
          const indicatorId = dato.id;
+          //mostrar el nombre del indicador en la pagina 3
+         const indicatorSelected = document.getElementById('paint-indicator');
+         indicatorSelected.innerHTML = dato.textContent;
          returnIndicatorsData = window.worldBank.indicatorData(listFemIndicators, indicatorId);
 
          for (let i in returnIndicatorsData) {
@@ -79,7 +94,7 @@ btnIndicators.addEventListener('click', () => {
          let maxData = Math.max(...arrayFilterNumberData).toFixed(2)
          let promData = window.worldBank.averageData(arrayFilterNumberData).toFixed(2)
          let statisticalTable =
-            `<tr> <th>Datos estadisticos</th> <th>Valores</th> </tr> 
+            `<tr> <th scope="col">Datos estadisticos</th> <th scope="col">Valores</th> </tr> 
          <tr> <td> Min. </td>
           <td>${minData}</td>
          </tr>
