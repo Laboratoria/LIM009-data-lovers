@@ -39,7 +39,6 @@ window.worldBank = {
       });
     }
     return arrData;
-    // console.log('string', arrData);
   },
 
   averageData: (arrData) => { // Función para calcular el promedio

@@ -69,9 +69,9 @@ btnIndicators.addEventListener('click', () => {
       for (let i in returnIndicatorsData) {
         if (returnIndicatorsData[i] !== "") {
           dataIndividual +=
-                  ` <tr><td> ${i} </td>
+            ` <tr><td> ${i} </td>
                 <td>${ returnIndicatorsData[i].toFixed(2)}</td></tr>`;
-          tablaDataIndicators.innerHTML = dataIndividual;     
+          tablaDataIndicators.innerHTML = dataIndividual;
         }
       }
       orderDataBtn.addEventListener('click', () => {
@@ -82,20 +82,20 @@ btnIndicators.addEventListener('click', () => {
         for (let value of returnOrderDataTable) {
           if (value[1] !== "") {
             dataOrderIndividual +=
-                     ` <tr><td> ${value[0]} </td>
+              ` <tr><td> ${value[0]} </td>
                    <td>${ value[1].toFixed(2)}</td></tr>`;
             tablaDataIndicators.innerHTML = dataOrderIndividual;
           }
         }
         // console.loh('order', dataIndividual)
-      });    
+      });
       let arrayData = Object.values(returnIndicatorsData);
       let arrayFilterNumberData = arrayData.filter(Number);
       let minData = Math.min(...arrayFilterNumberData).toFixed(2);
       let maxData = Math.max(...arrayFilterNumberData).toFixed(2);
       let promData = window.worldBank.averageData(arrayFilterNumberData).toFixed(2);
       let statisticalTable =
-            `<tr> <th scope="col">Datos estadisticos</th> <th scope="col">Valores</th> </tr> 
+        `<tr> <th scope="col">Datos estadisticos</th> <th scope="col">Valores</th> </tr> 
          <tr> <td> Min. </td>
           <td>${minData}</td>
          </tr>
