@@ -5,6 +5,8 @@ require('../src/data.js');
 
 const country = 'PER';
 const sector = 'SL';
+const orderAsc = 'asc';
+const orderDesc = 'desc';
 
 const input =
 {
@@ -375,10 +377,6 @@ const outputFem = [
   }
 ];
 
-const orderAsc = 'asc';
-const orderDesc = 'desc';
-
-
 const outputObjctDataIndicator = {
   '1960': '',
   '1961': '',
@@ -459,7 +457,7 @@ const outputOrderDataAsc = [
   ['2002', 31.4799995422363]
 ];
 
-const outputOrderDataDesc =[
+const outputOrderDataDesc = [
   ["2002", 31.4799995422363],
   ["2003", 29.6299991607666],
   ["2007", 27.6700000762939],
@@ -476,77 +474,78 @@ const outputOrderDataDesc =[
   ["2017", 23.7600002288818],
   ["2016", 23.7399997711182],
   ["2015", 21.6800003051758]
-]
+];
 
 
 describe('worldBank', () => {
   it('deberia ser un objeto', () => {
-    expect(typeof window.worldBank).toBe('object');
+    expect(typeof global.worldBank).toBe('object');
   });
 
   describe('filterDataCountries', () => {
     it('debería ser una función', () => {
-      expect(typeof worldBank.filterDataCountries).toBe('function');
-    });
-    it('debería retornar filtrado por país y sector', () => {
-      expect(worldBank.filterDataCountries(input, country, sector)).toEqual(output);
+      expect(typeof global.worldBank.filterDataCountries).toBe('function');
     });
     it('debería retornar un array de objetos', () => {
-      expect(Array.isArray([worldBank.filterDataCountries(input, country, sector)])).toBe(true);
+      expect(Array.isArray([global.worldBank.filterDataCountries(input, country, sector)])).toBe(true);
+    });
+    it('debería retornar filtrado por país y sector', () => {
+      expect(global.worldBank.filterDataCountries(input, country, sector)).toEqual(output);
     });
   });
 
   describe('filterFemIndicators', () => {
     it('deberia ser una funcion', () => {
-      expect(typeof worldBank.filterFemIndicators).toBe('function');
-    });
-    it('deberia retornar filtrado por sexo femenino', () => {
-      expect(worldBank.filterFemIndicators(output)).toEqual(outputFem);
+      expect(typeof global.worldBank.filterFemIndicators).toBe('function');
     });
     it('debería retornar un array de objetos', () => {
-      expect(Array.isArray([worldBank.filterFemIndicators(output)])).toBe(true);
+      expect(Array.isArray([global.worldBank.filterFemIndicators(output)])).toBe(true);
+    });
+    it('deberia retornar filtrado por sexo femenino', () => {
+      expect(global.worldBank.filterFemIndicators(output)).toEqual(outputFem);
     });
   });
 
   describe('indicatorData', () => {
     it('deberia ser una funcion', () => {
-      expect(typeof worldBank.indicatorData).toBe('function');
-    });
-    it('debería retornar la data,anteriormente filtrado por país, sector y sexo', () => {
-      expect(worldBank.indicatorData(outputFem, 'SL.TLF.PART.FE.ZS')).toEqual(outputObjctDataIndicator);
+      expect(typeof global.worldBank.indicatorData).toBe('function');
     });
     it('deberia retornar un objeto', () => {
-      expect(typeof worldBank.indicatorData(outputFem, 'SL.TLF.PART.FE.ZS')).toBe('object');
+      expect(typeof global.worldBank.indicatorData(outputFem, 'SL.TLF.PART.FE.ZS')).toBe('object');
     });
+    it('debería retornar la data,anteriormente filtrado por país, sector y sexo', () => {
+      expect(global.worldBank.indicatorData(outputFem, 'SL.TLF.PART.FE.ZS')).toEqual(outputObjctDataIndicator);
+    });
+    
     it('debería retorna el objeto vacío si no se ingresa el indicador', () => {
-      expect(worldBank.indicatorData(outputFem, '')).toEqual('');
+      expect(global.worldBank.indicatorData(outputFem, '')).toEqual('');
     });
   });
 
   describe('orderDataTable', () => {
     it('deberia ser una funcion', () => {
-      expect(typeof worldBank.orderDataTable).toBe('function');
+      expect(typeof global.worldBank.orderDataTable).toBe('function');
+    });
+    it('deberia retornar un array', () => {
+      expect(Array.isArray([global.worldBank.orderDataTable(inputDataIndicator, orderDesc)])).toBe(true);
     });
     it('deberia retornar un array de la data ordenada de manera ascendente de la data de un incador', () => {
-      expect(worldBank.orderDataTable(  inputDataIndicator, orderAsc)).toEqual(outputOrderDataAsc);
+      expect(global.worldBank.orderDataTable(inputDataIndicator, orderAsc)).toEqual(outputOrderDataAsc);
     });
     it('deberia retornar un array de la data ordenada de manera descendente de la data de un incador', () => {
-      expect(worldBank.orderDataTable(  inputDataIndicator, orderDesc)).toEqual(outputOrderDataDesc);
-    });
-     it('deberia retornar un array', () => {
-      expect(Array.isArray([worldBank.orderDataTable(  inputDataIndicator, orderDesc)])).toBe(true);
+      expect(global.worldBank.orderDataTable(inputDataIndicator, orderDesc)).toEqual(outputOrderDataDesc);
     });
   });
 
   describe('averageData', () => {
     it('deberia ser una funcion', () => {
-      expect(typeof worldBank.averageData).toBe('function');
-    });
-    it('deberia retornar un number de promedio', () => {
-      expect(worldBank.averageData(inputFilter)).toEqual(outputAverage);
+      expect(typeof global.worldBank.averageData).toBe('function');
     });
     it('deberia retornar un number', () => {
-      expect(typeof worldBank.averageData(inputFilter)).toBe('number');
+      expect(typeof global.worldBank.averageData(inputFilter)).toBe('number');
+    });
+    it('deberia retornar un number de promedio', () => {
+      expect(global.worldBank.averageData(inputFilter)).toEqual(outputAverage);
     });
   });
 });
